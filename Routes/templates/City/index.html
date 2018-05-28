@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cities</title>
+</head>
+<body>
+<h1>Cities</h1>
+
+{% for city in cities %}
+<p>City Information</p>
+<p>{{city.Name}}</p>
+<p>{{city.State}}</p>
+<p>{{city.Country}}</p>
+{% endfor %}
+
+</body>
+</html>

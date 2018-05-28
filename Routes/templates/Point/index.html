@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point</title>
+</head>
+<body>
+<h1>Points</h1>
+
+{% for point in points %}
+<p>Point Information</p>
+<p>{{point.Name}}</p>
+<p>{{point.Description}}</p>
+<p>{{point.Latitude}}</p>
+<p>{{point.Longitude}}</p>
+<p>{{point.Category}}</p>
+<p>{{point.City}}</p>
+{% endfor %}
+
+</body>
+</html>

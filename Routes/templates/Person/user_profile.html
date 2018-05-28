@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+{{user.get_full_name}}
+<ul>
+    <li>Username: {{user.username}}</li>
+    <li>Birthday: {{user.person.birthday}}</li>
+    <li>Biography: {{user.person.biography}}</li>
+</ul>
+</body>
+</html>
