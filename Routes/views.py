@@ -2,34 +2,33 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
-# Create your views here.
 from Routes.forms import UserForm, PersonForm
 from Routes.models import City, Route, Category, Point
+# Create your views here.
 
 
 def firstview(request):
-    return render(request, 'Routes/user_profile.html')
+    return render(request, 'Routes/index.html')
 
 
 def cityview(request):
     request_cities = City.objects.all()
-    return render(request, 'City/user_profile.html', {'cities': request_cities})
+    return render(request, 'City/index.html', {'cities': request_cities})
 
 
 def routeview(request):
     request_routes = Route.objects.all()
-    return render(request, 'Route/user_profile.html', {'routes': request_routes})
+    return render(request, 'Route/index.html', {'routes': request_routes})
 
 
 def categoryview(request):
     request_categories = Category.objects.all()
-    return render(request, 'Category/user_profile.html', {'categories': request_categories})
+    return render(request, 'Category/index.html', {'categories': request_categories})
 
 
 def pointview(request):
     request_points = Point.objects.all()
-    return render(request, 'Point/user_profile.html', {'points': request_points})
+    return render(request, 'Point/index.html', {'points': request_points})
 
 
 def user_profile(request):
