@@ -2,8 +2,13 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from Routes.forms import UserForm, PersonForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+
+from Routes.forms import UserForm, PersonForm, PointForm, CategoryForm
 from Routes.models import City, Route, Category, Point
+
+
 # Create your views here.
 
 
@@ -51,3 +56,41 @@ def create_profile(request):
         person_form = PersonForm(instance=request.user.person)
 
     return render(request, 'Person/person_form.html', {'user_form': user_form, 'person_form': person_form})
+
+
+def generaterouteview(request):
+    return render(request, 'Route/generate.html', {})
+
+
+def pointadmin(request):
+    return render(request, 'index.html')
+
+
+class CreatePoint(CreateView):
+    template_name = 'cadastro.html'
+    model = Point
+    success_url = reverse_lazy('lista')
+    form_class = PointForm
+
+
+class ListPoint(ListView):
+    template_name = 'lista.html'
+    model = Point
+    context_object = 'nome'
+
+
+def categoryadmin(request):
+    return render(request, 'index.html')
+
+
+class CreateCategory(CreateView):
+    template_name = 'cadastro.html'
+    model = Category
+    success_url = reverse_lazy('lista')
+    form_class = CategoryForm
+
+
+class ListCategory(ListView):
+    template_name = 'lista.html'
+    model = Category
+    context_object = 'nome'

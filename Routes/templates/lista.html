@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Lista de Clientes</h1>
+
+                <table>
+                        <tr>
+                                <th>Nome</th>
+                        </tr>
+                {% for nome in object_list %}
+                        <tr>
+                                <td>{{ nome.Name }}</td>
+                        </tr>
+                {% empty %}
+                        <li>Sem itens na lista.</li>
+                {% endfor %}
+                </table>
+{% endblock content %}
+</body>
+</html>

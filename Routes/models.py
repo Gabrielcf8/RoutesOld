@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
+
 # Create your models here.
 
 
@@ -12,7 +14,7 @@ class City(models.Model):
     INITIAL_ID = 1
 
     Name = models.CharField(max_length=150)
-    Photo = models.ImageField(blank=True, null=True, upload_to="covers/%Y/%m/%D/")
+    Photo = models.ImageField(blank=True, null=True)
     State = models.CharField(max_length=100)
     Country = models.CharField(max_length=100)
 
@@ -21,12 +23,11 @@ class City(models.Model):
 
 
 class Category(models.Model):
-
     INITIAL_ID = 1
 
     Name = models.CharField(max_length=150)
     Description = models.CharField(max_length=350)
-    Photo = models.ImageField(blank=True, null=True, upload_to="covers/%Y/%m/%D/")
+    Photo = models.ImageField(blank=True, null=True)
 
     def __unicode__(self):
         return self.Name
@@ -37,7 +38,7 @@ class Point(models.Model):
 
     Name = models.CharField(max_length=100)
     Description = models.CharField(max_length=500)
-    Photo = models.ImageField(blank=True, null=True, upload_to="covers/%Y/%m/%D/")
+    Photo = models.ImageField(blank=True, null=True)
     Latitude = models.FloatField()
     Longitude = models.FloatField()
     Category = models.ForeignKey(Category, default=INITIAL_ID, on_delete=models.CASCADE)
@@ -51,9 +52,9 @@ class Route(models.Model):
     INITIAL_ID = 1
 
     Name = models.CharField(max_length=150)
-    Photo = models.ImageField(blank=True, null=True, upload_to="covers/%Y/%m/%D/")
+    Photo = models.ImageField(blank=True, null=True)
     City = models.ForeignKey(City, default=INITIAL_ID, on_delete=models.CASCADE)
-    Destiny = models.ForeignKey(Point, default=INITIAL_ID, on_delete=models.CASCADE)
+    Points = models.ManyToManyField(Point)
 
     def __unicode__(self):
         return self.Name
