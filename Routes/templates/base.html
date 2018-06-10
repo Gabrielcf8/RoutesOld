@@ -4,51 +4,65 @@
 
 <head>
     {% block title %}
-    <title>Routes Web App</title>
     <meta charset="UTF-8">
+    <title>Routes Web App</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <nav class="gray" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="/" class="brand-logo">Logo</a>
-
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/points/">Point</a></li>
-                <li><a href="/categories/">Category</a></li>
-                <li><a href="/cities/">City</a></li>
-                <li><a href="/route/">Routes</a></li>
-                <li><a href="/admin/">Sign In</a></li>
-
-            </ul>
-            <ul id="nav-mobile" class="sidenav">
-                <li><a href="/points/">Point</a></li>
-                <li><a href="/categories/">Category</a></li>
-                <li><a href="/cities/">City</a></li>
-                <li><a href="/route/">Routes</a></li>
-                <li><a href="/admin/">Sign In</a></li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
-    {% endblock title %}
+    {% endblock %}
 </head>
 
-<body>
-<div>
-    <ul>
-        <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
-        <li><a href="{% url 'lista' %}">Lista</a></li>
-    </ul>
+<body class="deep-orange lighten-4">
+<nav class="red" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo">Logo</a>
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/points/">Point</a></li>
+            <li><a href="/categories/">Category</a></li>
+            <li><a href="/cities/">City</a></li>
+            <li><a href="/route/">Routes</a></li>
+            <li><a href="/admin/">Sign In</a></li>
+
+        </ul>
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="/points/">Point</a></li>
+            <li><a href="/categories/">Category</a></li>
+            <li><a href="/cities/">City</a></li>
+            <li><a href="/route/">Routes</a></li>
+            <li><a href="/admin/">Sign In</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<div class="container ">
+    <div>
+        <ul>
+            <li><a class="btn" href="{% url 'cadastro' %}">Cadastro</a></li>
+            <li><a class="btn" href="{% url 'listaPoint' %}">Lista</a></li>
+        </ul>
+    </div>
 </div>
-{% block content %}
 
-{% endblock content %}
 
+<div class="row z-depth-5 deep-orange lighten-3 hoverable container">
+    <div class="col s6 m6 l12">
+            <div class="card-content white-text ">
+                {% block content %}
+
+
+            </div>
+    </div>
+</div>
+</body>
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="{% static 'js/materialize.js' %}"></script>
 <script src="{% static 'js/init.js' %}"></script>
+
+
+ {% endblock content %}
 </body>
 </html>

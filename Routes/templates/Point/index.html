@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
+
 <head>
     <meta charset="UTF-8">
     <title>Point</title>
@@ -10,48 +11,71 @@
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body>
-<nav class="gray" role="navigation">
-    <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo">Logo</a>
+<body class="deep-orange lighten-4">
+<div class="navbar-fixed">
+    <nav class="red" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="/" class="brand-logo">Logo</a>
 
-        <ul class="right hide-on-med-and-down">
-            <li><a href="/points/">Point</a></li>
-            <li><a href="/categories/">Category</a></li>
-            <li><a href="/cities/">City</a></li>
-            <li><a href="/route/">Routes</a></li>
-            <li><a href="/admin/">Sign In</a></li>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/points/">Point</a></li>
+                <li><a href="/categories/">Category</a></li>
+                <li><a href="/cities/">City</a></li>
+                <li><a href="/route/">Routes</a></li>
+                <li><a href="/admin/">Sign In</a></li>
 
-        </ul>
-        <ul id="nav-mobile" class="sidenav">
-            <li><a href="/points/">Point</a></li>
-            <li><a href="/categories/">Category</a></li>
-            <li><a href="/cities/">City</a></li>
-            <li><a href="/route/">Routes</a></li>
-            <li><a href="/admin/">Sign In</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </ul>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="/points/">Point</a></li>
+                <li><a href="/categories/">Category</a></li>
+                <li><a href="/cities/">City</a></li>
+                <li><a href="/route/">Routes</a></li>
+                <li><a href="/admin/">Sign In</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <h3 class="center">Point Information</h3>
+
+    {% for point in points %}
+
+    <div class="row z-depth-5 deep-orange lighten-2 hoverable">
+        <div>
+            <div class="col s6 m6 z-depth-0">
+                <ul>
+                    <li><img class="responsive-img"
+                             src="http://www.hapfun.com.br/wp-content/uploads/2017/10/ob_de656e_004.jpg">
+                    </li>
+                </ul>
+            </div>
+            <div class="col s6 m6">
+                <div class="card deep-orange lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{point.Name}}</span>
+                        <ul>
+                            <li><p>Description: {{point.Description}}</p></li>
+                            <li><p>Latitude: {{point.Latitude}}</p></li>
+                            <li><p>Longitude: {{point.Longitude}}</p></li>
+                            <li><p>Category: {{point.Category}}</p></li>
+                            <li><p>City: {{point.City}}</p></li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a class="white-text" href="#"> <i class="material-icons small">map</i> MAP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
-<h1>Points</h1>
-
-{% for point in points %}
-<p>Point Information</p>
-<ul>
-    <li><img src="{{ MEDIA_URL }}{{ point.Photo.path }}"></li>
-    <li><p>Name: {{point.Name}}</p></li>
-    <li><p>Description: {{point.Description}}</p></li>
-    <li><p>Latitude: {{point.Latitude}}</p></li>
-    <li><p>Longitude: {{point.Longitude}}</p></li>
-    <li><p>Category: {{point.Category}}</p></li>
-    <li><p>City: {{point.City}}</p></li>
-</ul>
-{% endfor %}
+    {% endfor %}
 
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="{% static 'js/materialize.js' %}"></script>
-<script src="{% static 'js/init.js' %}"></script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
 </body>
 </html>

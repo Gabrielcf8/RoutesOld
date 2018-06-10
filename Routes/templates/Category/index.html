@@ -10,8 +10,9 @@
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body>
-<nav class="gray" role="navigation">
+<body class="deep-orange lighten-4">
+
+<nav class="red" role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="/" class="brand-logo">Logo</a>
 
@@ -33,19 +34,31 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
 </nav>
+<div class="container">
+    <h3 class="center">Category Information</h3>
 
-<h1>Category</h1>
+    {% for category in categories %}
 
-{% for category in categories %}
-<p>Category Information</p>
-<p>Name: {{category.Name}}</p>
-<p>Description: {{category.Description}}</p>
-{% endfor %}
+    <div class="row z-depth-5 deep-orange lighten-2 hoverable">
+        <div>
+            <div class="col s6 m6 l12 z-depth-0">
+                <div class="card deep-orange lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{category.Name}}</span>
+                    </div>
+                    <div class="card-action">
+                        <a class="white-text" href="#"> <i class="material-icons small">edit</i>EDIT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="{% static 'js/materialize.js' %}"></script>
-<script src="{% static 'js/init.js' %}"></script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
 </body>
 </html>
