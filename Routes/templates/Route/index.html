@@ -45,12 +45,12 @@
     <a class="btn" href="/generate">Generate new route</a>
     <div class="row z-depth-5 deep-orange lighten-2 hoverable">
         <div>
-            <div class="col s6 m6 l12 z-depth-0">
+            <div class="col s12 m12 l12 z-depth-0">
                 <div class="card deep-orange lighten-2">
                     <div class="card-content white-text">
                         <span class="card-title">{{route.Name}}</span>
                         <ul>
-                            <li><p>City: {{route.City}}</p></li>
+                            <li><p>City: {{route.City.Name}}</p></li>
                             <li><p>Points: {{route.Points.all|join:", " }}</p></li>
                         </ul>
                     </div>
