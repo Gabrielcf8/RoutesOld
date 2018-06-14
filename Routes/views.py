@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
-from Routes.forms import UserForm, PersonForm, PointForm, CategoryForm
+from Routes.forms import UserForm, PersonForm, PointForm, CategoryForm, CityForm, RouteForm
 from Routes.models import City, Route, Category, Point
 
 
@@ -62,6 +62,10 @@ def generaterouteview(request):
     return render(request, 'Route/generate.html', {})
 
 
+def mapview(request):
+    return render(request, 'Point/map.html', {})
+
+
 def pointadmin(request):
     return render(request, 'index.html')
 
@@ -74,7 +78,7 @@ class CreatePoint(CreateView):
 
 
 class ListPoint(ListView):
-    template_name = 'lista.html'
+    template_name = 'Point/index.html'
     model = Point
     context_object = 'nome'
 
@@ -93,4 +97,30 @@ class CreateCategory(CreateView):
 class ListCategory(ListView):
     template_name = 'lista.html'
     model = Category
+    context_object = 'nome'
+
+
+class CreateCity(CreateView):
+    template_name = 'cadastro.html'
+    model = City
+    success_url = reverse_lazy('lista')
+    form_class = CityForm
+
+
+class ListCity(ListView):
+    template_name = 'lista.html'
+    model = City
+    context_object = 'nome'
+
+
+class CreateRoute(CreateView):
+    template_name = 'cadastro.html'
+    model = Route
+    success_url = reverse_lazy('lista')
+    form_class = RouteForm
+
+
+class ListRoute(ListView):
+    template_name = 'lista.html'
+    model = Route
     context_object = 'nome'

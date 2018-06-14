@@ -3,14 +3,19 @@
 {% load staticfiles %}
 
 <head>
-    {% block title %}
     <meta charset="UTF-8">
-    <title>Routes Web App</title>
+    <title>Point</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    {% endblock %}
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 </head>
 
 <body class="deep-orange lighten-4">
@@ -38,20 +43,38 @@
 </nav>
 
 
-<div class="row z-depth-5 deep-orange lighten-3 hoverable container">
-    <div class="col s6 m6 l12">
-            <div class="card-content white-text ">
-                {% block content %}
-            </div>
-    </div>
-</div>
-</body>
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="{% static 'js/materialize.js' %}"></script>
-<script src="{% static 'js/init.js' %}"></script>
+<h3 class="center">Point Map</h3>
+    <div class="container">
+                               <div id="map"></div>
+                </div>
+    <script>
+      function initMap() {
+         var lat = parseFloat(location.href.match(/[?&]lat=([^&]+)/)[1]);
+         var lng = parseFloat(location.href.match(/[?&]lon=([^&]+)/)[1]);
+         var name = location.href.match(/[?&]name=([^&]+)/)[1];
+
+        var uluru = {lat, lng};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: name
+        });
 
 
- {% endblock content %}
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMV9QqzF2vlTo11uFOERIVEdbBzQrS1Vc&callback=initMap">
+    </script>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
 </body>
 </html>

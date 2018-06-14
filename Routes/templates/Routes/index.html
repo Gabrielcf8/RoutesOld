@@ -10,10 +10,10 @@
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body>
+<body class="deep-orange lighten-4">
 <nav class="red" role="navigation">
     <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo">Logo</a>
+        <a id="logo-container" href="/" class="brand-logo">RoutesApp</a>
 
         <ul class="right hide-on-med-and-down">
             <li><a href="/points/">Point</a></li>
@@ -32,11 +32,42 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
 </nav>
-<h1>Routes App</h1>
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="{% static 'js/materialize.js' %}"></script>
-<script src="{% static 'js/init.js' %}"></script>
+<div class="container">
+    <h3 class="center"></h3>
+
+    <div class="row z-depth-5 deep-orange lighten-2 hoverable">
+        <div>
+            <div class="col s6 m6 l12 z-depth-0">
+                <div class="card-content white-text">
+                    <div class="col s12 m12 l12 z-depth-0">
+                        <div class="card-content">
+                            <h5 class="black-text center">
+                                Welcome to our application!<br><br>
+
+                                This was developed to try to simplify the way of locating and assisting in your travels.
+
+                                Good luck and forward your feedback so that we can always improve your experience!
+                                <br><br>
+                                E-mail: routesapp@facens.br .</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                <center>
+                                    <img class="responsive-img"
+                                         src="https://media.giphy.com/media/CFYmOhfY6tfY4/source.gif">
+                                </center>
+                            </li>
+                        </ul>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
 </body>
 </html>

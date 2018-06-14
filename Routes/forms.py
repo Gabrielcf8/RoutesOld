@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from Routes.models import Person, Point, Category
+from Routes.models import Person, Point, Category, City, Route
 
 
 class UserForm(forms.ModelForm):
@@ -25,4 +25,16 @@ class PointForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
+        fields = '__all__'
+
+
+class CityForm(forms.ModelForm):
+    class Meta:
+        model = City
+        fields = '__all__'
+
+
+class RouteForm(forms.ModelForm):
+    class Meta:
+        model = Route
         fields = '__all__'
